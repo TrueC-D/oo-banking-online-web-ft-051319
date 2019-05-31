@@ -10,7 +10,16 @@ class Transfer
   
   def valid?
     (@sender.valid? == true && @sender.balance-@amount>0 && @receiver.valid? == true)? true : false
-    
+  end
+  
+  def execute_transaction
+    if self.valid? == true && status != "complete"
+      @sender.balance -= amount
+      @receiver.balance += amount
+      @sender.last_transaction = self
+    else
+      @status = rejected
+      "Your transaction was rejected. Please check your balance."
   end
   
 end
