@@ -20,7 +20,7 @@ class Transfer
       @sender.last_transaction = self
     else
       @status = "rejected"
-      "Your transaction was rejected. Please check your balance."
+      "Transaction rejected. Please check your account balance."
     end
   end
   
