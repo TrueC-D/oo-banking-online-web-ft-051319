@@ -7,6 +7,7 @@ class BankAccount
     @name = name
     @balance = 1000
     @status = "open"
+    @last_transaction = nil
   end
   
   def deposit(amount)
