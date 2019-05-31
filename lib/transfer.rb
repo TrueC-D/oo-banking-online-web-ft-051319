@@ -16,9 +16,10 @@ class Transfer
     if self.valid? == true && status != "complete"
       @sender.balance -= amount
       @receiver.balance += amount
+      @status = "complete"
       @sender.last_transaction = self
     else
-      @status = rejected
+      @status = "rejected"
       "Your transaction was rejected. Please check your balance."
     end
   end
